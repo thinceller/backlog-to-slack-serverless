@@ -11,7 +11,7 @@ const WEBHOOKURI = process.env['WEBHOOKURI'];
 slack.setWebhook(WEBHOOKURI);
 
 // Format chat message
-function makeChatMessage(body) {
+const makeChatMessage = body => {
   let msgObj = new Object();
   let label = "";
   let bl_key = "";
@@ -121,7 +121,7 @@ function makeChatMessage(body) {
 }
 
 // POST Slack
-function postSlack(channel, message, comment) {
+const postSlack = (channel, message, comment) => {
   // 引用コメント部分整形
   let attachments_opts = "";
   if (comment) {
@@ -136,13 +136,13 @@ function postSlack(channel, message, comment) {
     };
   }
 
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve, reject) => {
     slack.webhook({
       channel: channel,
       username: BOTNAME,
       text: message,
       attachments: [attachments_opts]
-    }, function (err, response) {
+    }, (err, response) => {
       if (err) {
         console.log(response);
         reject(new Error('Error'));
@@ -156,7 +156,7 @@ function postSlack(channel, message, comment) {
 }
 
 // Main Handler
-exports.handler =  (event, context, callback) => {
+exports.handler = (event, context, callback) => {
   let room;
   let body;
   let slackObj = new Object();
