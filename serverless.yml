@@ -1,0 +1,17 @@
+service: backlog-to-slack
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: ap-northeast-1
+
+functions:
+  backlog2slack:
+    handler: index.handler
+    description: "backlog to slack"
+    memorySize: 128
+    timeout: 10
+    events:
+      - http:
+          path: backlog2slack/{room}
+          method: post
