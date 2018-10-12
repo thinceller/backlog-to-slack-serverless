@@ -1,4 +1,4 @@
-# backlog2slack-serverless
+# backlog-to-slack-serverless
 
 元リポジトリ: https://github.com/dorachan/backlog2slack-serverless
 
@@ -17,6 +17,12 @@ http://qiita.com/kosuge/items/051922673cf57203f8db
 ```
 npm install
 sls deploy
+```
+
+## Lambda削除
+
+```
+sls remove
 ```
 
 * Lambda関数のデプロイ(S3経由)、ロールの設定、API Gatewayの設定がまとめて完了します。AWSコンソールで操作する必要はありません。
