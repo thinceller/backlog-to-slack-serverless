@@ -21,21 +21,21 @@ function makeChatMessage(body) {
 
   switch (body.type) {
     case 1:
-      label = "追加";
+      label = "課題追加";
       bl_key = "[" + body.project.projectKey + "-" + body.content.key_id + "]";
       bl_summary = "「" + body.content.summary + "」";
       bl_url = BASEURL + "view/" + body.project.projectKey + "-" + body.content.key_id;
       bl_comment = body.content.description;
       break;
     case 2:
-      label = "更新";
+      label = "課題更新";
       bl_key = "[" + body.project.projectKey + "-" + body.content.key_id + "]";
       bl_summary = "「" + body.content.summary + "」";
       bl_url = BASEURL + "view/" + body.project.projectKey + "-" + body.content.key_id;
       bl_comment = body.content.description;
       break;
     case 3:
-      label = "コメント";
+      label = "課題へのコメント";
       bl_key = "[" + body.project.projectKey + "-" + body.content.key_id + "]";
       bl_summary = "「" + body.content.summary + "」";
       bl_url = BASEURL + "view/" + body.project.projectKey + "-" + body.content.key_id + "#comment-" + body.content.comment.id;
